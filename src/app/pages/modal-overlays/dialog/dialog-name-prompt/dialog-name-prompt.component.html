@@ -1,0 +1,20 @@
+<nb-card>
+  <nb-card-header>Enter your name</nb-card-header>
+  <nb-card-body>
+    <label class="label col-sm-3 col-form-label"> Agent Name </label>
+    <div >
+      <input #agentName type="text" nbInput fullWidth shape="semi-round" placeholder="Name of agent" class="col-sm-9">  
+    </div>
+    <label class="label col-sm-3 col-form-label"> Quantity </label>
+    <div >
+      <nb-select #quantity selected="1"> 
+        <nb-option value="{{ num }}" *ngFor="let num of [1, 2, 3]">{{ num }}</nb-option>
+      </nb-select>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+    <!-- <button nbButton status="success" (click)="submit(name.value)">Submit</button> -->
+    <button nbButton status="success" (click)="submit({number: quantity.selected, name: agentName.value})">Submit</button>
+  </nb-card-footer>
+</nb-card>

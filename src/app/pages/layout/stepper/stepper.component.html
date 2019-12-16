@@ -1,0 +1,109 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card-body>
+        <nb-stepper #stepper>
+          <nb-step [stepControl]="firstForm" label="First step">
+            <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
+              <!-- <p class="lorem">
+                Select document
+              </p>
+              <div class="input-group">
+                <input type="text" placeholder="Enter your name" class="form-control" formControlName="firstCtrl"
+                       [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+              </div>
+              <button nbButton nbStepperNext>next</button> -->
+
+              <nb-card>
+                <nb-card-header>Enter Document Details</nb-card-header>
+                <nb-card-body>
+
+                    <div class="form-group row">
+                        <label class="label col-sm-3 col-form-label">Document Type</label>
+                        <div class="col-sm-9">
+                          <nb-select selected="1" fullWidth formControlName="firstCtrl" [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                            <nb-option value="1">Document 1</nb-option>
+                            <nb-option value="2">Document 2</nb-option>
+                          </nb-select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="label col-sm-3 col-form-label">Quantity</label>
+                      <div class="col-sm-9">
+                        <nb-select selected="1" fullWidth formControlName="firstCtrl" [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                          <nb-option value="1">1</nb-option>
+                          <nb-option value="2">2</nb-option>
+                        </nb-select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-3 col-sm-9">
+                        <!-- <button type="submit" nbButton status="primary">Sign in</button> -->
+                        <button nbButton nbStepperNext>next</button>
+                      </div>
+                    </div>
+
+                </nb-card-body>
+              </nb-card>
+            </form>
+          </nb-step>
+          <nb-step [stepControl]="secondForm" label="Second step">
+            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+              <!-- <p class="lorem">
+                Pellentesque we gonna chung tortor.
+                Sizzle pizzle. Fizzle izzle dolor dapibus fo shizzle mah nizzle fo rizzle, mah home g-dizzle tempus tempor.
+                Maurizzle cool nibh owned turpizzle. My shizz fo shizzle tortor.
+              </p>
+              <div class="input-group">
+                <input type="text" placeholder="Enter favorite movie" class="form-control" formControlName="secondCtrl"
+                       [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+              </div>
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext>next</button> -->
+
+
+              <!-- <div class="input-group" formControlName="secondCtrl"
+                  [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+                <nb-checkbox [value]="false">Document Printed</nb-checkbox>
+              </div> -->
+
+              <nb-card>
+                  <nb-card-header>Review and Print Details</nb-card-header>
+                  <nb-card-body>
+                    <div class="form-group row">
+                      <label for="inputPassword2" class="label col-sm-3 col-form-label">Agent Name</label>
+                      <div class="col-sm-9">
+                        <input type="text" nbInput fullWidth id="inputPassword2" placeholder="" formControlName="secondCtrl" [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+                      </div>
+                    </div>
+                    <button nbButton (click)="print()">print</button>
+                  </nb-card-body>
+                </nb-card>
+
+
+              <button nbButton nbStepperPrevious>prev</button>
+              <!-- <button nbButton (click)="print()">print</button> -->
+              <button nbButton nbStepperNext>next</button>
+            </form>
+          </nb-step>
+          <!-- <nb-step [stepControl]="thirdForm" label="Third step">
+            <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
+              <p class="lorem">
+                Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
+              </p>
+              <div class="input-group">
+                <input type="text" placeholder="Enter something" class="form-control" formControlName="thirdCtrl"
+                       [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
+              </div>
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext>Confirm</button>
+            </form>
+          </nb-step> -->
+          <nb-step [stepControl]="secondForm" [hidden]="true" label="Second step">
+            <div class="step-container">
+              <h3>Document printed and logged!</h3>
+              <button nbButton (click)="stepper.reset()">Try again</button>
+            </div>
+          </nb-step>
+        </nb-stepper>
+      </nb-card-body>
+</nb-card>
+
